@@ -383,6 +383,17 @@ function Hero() {
     <section ref={ref} className="relative min-h-screen flex flex-col justify-between px-6 md:px-12 pt-8 pb-12 overflow-hidden">
       <FloatingGlyphs />
 
+      {/* enso ring */}
+      <div className="absolute -right-20 md:right-10 top-20 w-[60vw] md:w-[34vw] max-w-[520px] text-crimson opacity-90 pointer-events-none">
+        <EnsoCircle className="w-full h-auto" />
+      </div>
+
+      {/* halftone planet */}
+      <div className="absolute -left-32 -bottom-20 w-[55vw] md:w-80 aspect-square rounded-full halftone-lg text-indigo opacity-50 pointer-events-none" />
+
+      {/* speed lines accent */}
+      <div className="absolute right-0 bottom-32 w-1/2 h-24 speed-lines text-ink/30 hidden md:block pointer-events-none" />
+
       {/* Top bar */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
