@@ -129,6 +129,248 @@ function FloatingGlyphs() {
   );
 }
 
+/* ------------ manga graphics ------------ */
+
+function InkBrush({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 200 40" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <motion.path
+        d="M2 22 C 30 6, 70 32, 120 18 S 188 24, 198 16"
+        stroke="currentColor"
+        strokeWidth="6"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        whileInView={{ pathLength: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+      />
+    </svg>
+  );
+}
+
+function EnsoCircle({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 200 200" className={className} fill="none">
+      <motion.path
+        d="M100 20 a80 80 0 1 1 -56 23"
+        stroke="currentColor"
+        strokeWidth="10"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        whileInView={{ pathLength: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+      />
+    </svg>
+  );
+}
+
+/* Manga panel illustrations */
+function PanelFuji() {
+  return (
+    <svg viewBox="0 0 200 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="dots1" width="5" height="5" patternUnits="userSpaceOnUse">
+          <circle cx="2.5" cy="2.5" r="0.8" fill="currentColor" />
+        </pattern>
+      </defs>
+      <rect width="200" height="200" fill="url(#dots1)" opacity="0.25" />
+      <circle cx="150" cy="55" r="22" fill="var(--crimson)" />
+      <path d="M0 150 L70 80 L95 110 L120 95 L200 150 Z" fill="currentColor" opacity="0.9" />
+      <path d="M55 95 L70 80 L85 100 M105 100 L120 95 L135 110" stroke="var(--paper)" strokeWidth="1.5" fill="none" opacity="0.4" />
+      <path d="M0 150 L200 150 L200 200 L0 200 Z" fill="currentColor" />
+      <path d="M10 170 q40 -8 80 0 t100 0" stroke="var(--paper)" strokeWidth="0.6" fill="none" opacity="0.3" />
+      <path d="M10 182 q50 -6 90 0 t90 0" stroke="var(--paper)" strokeWidth="0.6" fill="none" opacity="0.3" />
+    </svg>
+  );
+}
+
+function PanelTorii() {
+  return (
+    <svg viewBox="0 0 200 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="200" fill="var(--indigo)" opacity="0.25" />
+      {Array.from({ length: 30 }).map((_, i) => (
+        <line key={i} x1={Math.random() * 200} y1={-10} x2={Math.random() * 200 - 30} y2={210}
+          stroke="var(--paper)" strokeWidth="0.4" opacity="0.35" />
+      ))}
+      <g fill="var(--crimson)">
+        <rect x="35" y="60" width="130" height="14" />
+        <rect x="40" y="80" width="120" height="6" />
+        <rect x="55" y="86" width="12" height="100" />
+        <rect x="133" y="86" width="12" height="100" />
+        <rect x="95" y="86" width="10" height="60" />
+      </g>
+      <path d="M30 55 L100 30 L170 55 L165 60 L100 38 L35 60 Z" fill="var(--crimson)" />
+    </svg>
+  );
+}
+
+function PanelLantern() {
+  return (
+    <svg viewBox="0 0 200 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="200" fill="currentColor" opacity="0.05" />
+      <line x1="100" y1="0" x2="100" y2="40" stroke="currentColor" strokeWidth="1" />
+      <g transform="translate(100 100)">
+        <ellipse cx="0" cy="0" rx="45" ry="55" fill="var(--crimson)" />
+        <ellipse cx="0" cy="0" rx="45" ry="55" fill="none" stroke="currentColor" strokeWidth="1.5" />
+        <line x1="-45" y1="-25" x2="45" y2="-25" stroke="currentColor" strokeWidth="2" />
+        <line x1="-45" y1="25" x2="45" y2="25" stroke="currentColor" strokeWidth="2" />
+        <text x="0" y="8" textAnchor="middle" fill="currentColor" fontSize="28" fontFamily="serif" fontWeight="700">夢</text>
+      </g>
+      <g opacity="0.6">
+        <circle cx="40" cy="160" r="1.5" fill="var(--crimson)" />
+        <circle cx="60" cy="175" r="1" fill="var(--crimson)" />
+        <circle cx="155" cy="155" r="1.2" fill="var(--crimson)" />
+        <circle cx="170" cy="180" r="1" fill="var(--crimson)" />
+      </g>
+    </svg>
+  );
+}
+
+function PanelRain() {
+  return (
+    <svg viewBox="0 0 200 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="200" fill="var(--indigo)" opacity="0.4" />
+      {Array.from({ length: 80 }).map((_, i) => {
+        const x = (i * 13) % 210;
+        const y = (i * 7) % 220;
+        return <line key={i} x1={x} y1={y} x2={x - 8} y2={y + 18} stroke="var(--paper)" strokeWidth="0.6" opacity="0.55" />;
+      })}
+      {/* umbrella */}
+      <g transform="translate(100 130)">
+        <path d="M-35 0 Q0 -40 35 0 Z" fill="currentColor" />
+        <path d="M-35 0 Q-17 -8 0 0 Q17 -8 35 0" stroke="var(--paper)" strokeWidth="0.8" fill="none" opacity="0.4" />
+        <line x1="0" y1="0" x2="0" y2="40" stroke="currentColor" strokeWidth="2" />
+        <path d="M0 40 q4 4 8 0" stroke="currentColor" strokeWidth="2" fill="none" />
+      </g>
+    </svg>
+  );
+}
+
+function PanelTrain() {
+  return (
+    <svg viewBox="0 0 200 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="dots2" width="4" height="4" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="0.6" fill="currentColor" />
+        </pattern>
+      </defs>
+      <rect width="200" height="200" fill="url(#dots2)" opacity="0.3" />
+      {/* speed lines */}
+      {Array.from({ length: 22 }).map((_, i) => (
+        <line key={i} x1="0" y1={20 + i * 8} x2={140 + (i % 4) * 15} y2={20 + i * 8}
+          stroke="currentColor" strokeWidth="0.7" opacity={0.5} />
+      ))}
+      {/* train silhouette */}
+      <g transform="translate(60 80)" fill="currentColor">
+        <path d="M0 40 L20 10 L100 10 L120 40 Z" />
+        <rect x="0" y="40" width="120" height="35" />
+        <rect x="14" y="20" width="22" height="14" fill="var(--crimson)" />
+        <rect x="44" y="20" width="22" height="14" fill="var(--paper)" opacity="0.85" />
+        <rect x="74" y="20" width="22" height="14" fill="var(--paper)" opacity="0.85" />
+        <circle cx="22" cy="80" r="6" fill="var(--paper)" opacity="0.6" />
+        <circle cx="98" cy="80" r="6" fill="var(--paper)" opacity="0.6" />
+      </g>
+    </svg>
+  );
+}
+
+function PanelCup() {
+  return (
+    <svg viewBox="0 0 200 200" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+      <rect width="200" height="200" fill="currentColor" opacity="0.08" />
+      {/* steam */}
+      <motion.g
+        stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6"
+        animate={{ y: [-2, 2, -2] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <path d="M85 70 q-6 -10 0 -20 q6 -10 0 -20" />
+        <path d="M100 70 q-6 -10 0 -20 q6 -10 0 -20" />
+        <path d="M115 70 q-6 -10 0 -20 q6 -10 0 -20" />
+      </motion.g>
+      {/* cup */}
+      <g transform="translate(60 85)">
+        <path d="M0 0 L80 0 L72 60 L8 60 Z" fill="var(--crimson)" stroke="currentColor" strokeWidth="2" />
+        <ellipse cx="40" cy="2" rx="40" ry="6" fill="currentColor" />
+        <path d="M80 12 q22 0 22 18 t-24 18" fill="none" stroke="currentColor" strokeWidth="3" />
+      </g>
+      <line x1="30" y1="160" x2="170" y2="160" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+const PANELS = [
+  { jp: "富士", en: "Form", Comp: PanelFuji },
+  { jp: "鳥居", en: "Threshold", Comp: PanelTorii },
+  { jp: "提灯", en: "Light", Comp: PanelLantern },
+  { jp: "雨夜", en: "Rain", Comp: PanelRain },
+  { jp: "終電", en: "Last Train", Comp: PanelTrain },
+  { jp: "珈琲", en: "Pause", Comp: PanelCup },
+];
+
+function MangaInterlude() {
+  return (
+    <section className="relative px-6 md:px-12 py-32 md:py-48 overflow-hidden">
+      <div className="hairline mb-16" />
+      <div className="flex items-start justify-between gap-8 mb-12">
+        <div>
+          <Reveal><SectionLabel no="※" jp="場面" en="Interlude — Scenes" /></Reveal>
+          <Reveal delay={0.1}>
+            <h2 className="font-display text-4xl md:text-6xl mt-8 max-w-2xl leading-[1.05]">
+              Six frames from a <span className="italic text-crimson">quiet city</span>.
+            </h2>
+          </Reveal>
+        </div>
+        <Reveal delay={0.2}>
+          <div className="hidden md:block w-40 text-crimson">
+            <InkBrush className="w-full" />
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 text-ink">
+        {PANELS.map((p, i) => (
+          <motion.div
+            key={p.en}
+            initial={{ opacity: 0, y: 40, rotate: i % 2 ? 0.6 : -0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 1.1, delay: (i % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -6, rotate: 0 }}
+            className={`relative border-2 border-ink bg-beige/30 aspect-[4/5] overflow-hidden ${
+              i === 0 ? "md:col-span-1 md:row-span-2 md:aspect-[3/5]" : ""
+            }`}
+          >
+            <p.Comp />
+            <div className="absolute top-2 left-2 right-2 flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-ink mix-blend-difference">
+              <span>frame.{String(i + 1).padStart(2, "0")}</span>
+              <span className="font-jp text-sm">{p.jp}</span>
+            </div>
+            <div className="absolute bottom-2 left-2 right-2 flex items-end justify-between">
+              <span className="font-display text-lg leading-none">{p.en}</span>
+              <span className="w-6 h-px bg-ink" />
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* speech bubble */}
+      <Reveal delay={0.3}>
+        <div className="mt-16 flex justify-end">
+          <div className="relative max-w-sm">
+            <div className="border-2 border-ink rounded-3xl px-6 py-5 bg-paper">
+              <p className="font-jp text-sm text-crimson mb-1">「静けさ」</p>
+              <p className="font-display italic text-lg">"Silence is also a form of design."</p>
+            </div>
+            <div className="absolute -bottom-4 right-12 w-0 h-0 border-l-[16px] border-l-transparent border-t-[18px] border-t-ink" />
+            <div className="absolute -bottom-[14px] right-[51px] w-0 h-0 border-l-[12px] border-l-transparent border-t-[14px] border-t-paper" />
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  );
+}
+
 /* ------------ sections ------------ */
 
 function Hero() {
@@ -140,6 +382,17 @@ function Hero() {
   return (
     <section ref={ref} className="relative min-h-screen flex flex-col justify-between px-6 md:px-12 pt-8 pb-12 overflow-hidden">
       <FloatingGlyphs />
+
+      {/* enso ring */}
+      <div className="absolute -right-20 md:right-10 top-20 w-[60vw] md:w-[34vw] max-w-[520px] text-crimson opacity-90 pointer-events-none">
+        <EnsoCircle className="w-full h-auto" />
+      </div>
+
+      {/* halftone planet */}
+      <div className="absolute -left-32 -bottom-20 w-[55vw] md:w-80 aspect-square rounded-full halftone-lg text-indigo opacity-50 pointer-events-none" />
+
+      {/* speed lines accent */}
+      <div className="absolute right-0 bottom-32 w-1/2 h-24 speed-lines text-ink/30 hidden md:block pointer-events-none" />
 
       {/* Top bar */}
       <motion.div
@@ -575,6 +828,7 @@ function Portfolio() {
         <Hero />
         <About />
         <Skills />
+        <MangaInterlude />
         <Projects />
         <Philosophy />
         <Hobbies />
