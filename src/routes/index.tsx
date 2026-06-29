@@ -817,6 +817,7 @@ function Portfolio() {
         <Hero />
         <About />
         <Skills />
+        <MangaInterlude />
         <Projects />
         <Philosophy />
         <Hobbies />
