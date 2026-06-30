@@ -338,9 +338,9 @@ function Hero() {
 
         {/* bottom row */}
         <div className="grid grid-cols-12 gap-4 items-end">
-          <div className="col-span-12 md:col-span-4 text-sm leading-relaxed text-ink-soft max-w-xs">
+          <div className="col-span-12 md:col-span-5 text-sm md:text-base leading-relaxed text-ink max-w-md">
             <Reveal delay={0.7}>
-              I turn ideas into working products with the help of AI — learning, shipping, refining. Quietly.
+              I build apps, websites, and working robots — with AI as my co-pilot. Curious by default, quiet by design.
             </Reveal>
           </div>
           <div className="col-span-6 md:col-span-4 md:col-start-6 hidden md:block">
