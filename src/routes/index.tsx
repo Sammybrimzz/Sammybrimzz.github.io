@@ -181,8 +181,8 @@ function Nav() {
   ];
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-[120] mix-blend-difference text-paper">
-        <div className="flex items-center justify-between px-6 md:px-10 py-6 font-mono text-xs uppercase tracking-[0.25em]">
+      <header className="fixed top-0 left-0 right-0 z-[120] text-ink">
+        <div className="flex items-center justify-between px-6 md:px-10 py-6 font-mono text-xs uppercase tracking-[0.25em] backdrop-blur-sm">
           <a href="#top" className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-crimson" />
             <span>Samarth Naik</span>
@@ -190,10 +190,10 @@ function Nav() {
           <nav className="hidden md:flex gap-8">
             {links.slice(1).map(([id, n]) => (
               <a key={id} href={`#${id}`} className="group inline-flex items-center gap-2">
-                <span className="opacity-50">{n}</span>
+                <span className="text-ink-soft">{n}</span>
                 <span className="relative">
                   {id}
-                  <span className="absolute left-0 -bottom-1 h-px w-0 bg-paper group-hover:w-full transition-all duration-500" />
+                  <span className="absolute left-0 -bottom-1 h-px w-0 bg-ink group-hover:w-full transition-all duration-500" />
                 </span>
               </a>
             ))}
@@ -204,10 +204,10 @@ function Nav() {
             aria-label="menu"
             data-cursor
           >
-            <span className="block w-6 h-px bg-paper" />
-            <span className="block w-6 h-px bg-paper" />
+            <span className="block w-6 h-px bg-ink" />
+            <span className="block w-6 h-px bg-ink" />
           </button>
-          <span className="hidden md:inline opacity-60">Available · MMXXVI</span>
+          <span className="hidden md:inline text-ink-soft">Available · MMXXVI</span>
         </div>
       </header>
 
