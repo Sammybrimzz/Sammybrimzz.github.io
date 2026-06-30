@@ -397,15 +397,30 @@ function About() {
           <Reveal>02 / About</Reveal>
         </div>
         <div className="col-span-12 md:col-span-9 md:col-start-4">
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.15] tracking-tight max-w-4xl">
-            <MaskText text="I don't consider myself an expert. I'm someone who enjoys" />
-            <span className="text-ink-soft">
-              <MaskText delay={0.2} text="bringing ideas to life with AI — experimenting, shipping, improving." />
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.2] tracking-tight max-w-4xl text-ink">
+            <MaskText text="I love making things with the help of AI —" />
+            <span className="text-ink-soft block mt-2">
+              <MaskText delay={0.2} text="apps, websites, and small robots that actually move." />
             </span>
-            <span className="text-crimson italic">
+            <span className="text-crimson italic block mt-2">
               <MaskText delay={0.4} text="Curiosity is the engine." />
             </span>
           </h2>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-4xl">
+            {[
+              ["Web", "Clean, motion-first websites and landing pages — from idea to shipped, fast."],
+              ["Apps", "Lightweight tools and personal apps built with React, Next.js, and AI workflows."],
+              ["Robots", "Hands-on hardware tinkering — sensors, motors, microcontrollers, small builds that work."],
+            ].map(([k, v], i) => (
+              <Reveal key={k} delay={i * 0.1}>
+                <div className="border-t border-rule pt-4">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-crimson mb-3">0{i + 1} · {k}</div>
+                  <p className="text-sm md:text-base text-ink leading-relaxed">{v}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
 
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 font-mono text-xs uppercase tracking-[0.25em]">
             {[
