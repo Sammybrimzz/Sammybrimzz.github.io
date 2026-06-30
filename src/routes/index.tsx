@@ -181,8 +181,8 @@ function Nav() {
   ];
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-[120] mix-blend-difference text-paper">
-        <div className="flex items-center justify-between px-6 md:px-10 py-6 font-mono text-xs uppercase tracking-[0.25em]">
+      <header className="fixed top-0 left-0 right-0 z-[120] text-ink">
+        <div className="flex items-center justify-between px-6 md:px-10 py-6 font-mono text-xs uppercase tracking-[0.25em] backdrop-blur-sm">
           <a href="#top" className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-crimson" />
             <span>Samarth Naik</span>
@@ -190,10 +190,10 @@ function Nav() {
           <nav className="hidden md:flex gap-8">
             {links.slice(1).map(([id, n]) => (
               <a key={id} href={`#${id}`} className="group inline-flex items-center gap-2">
-                <span className="opacity-50">{n}</span>
+                <span className="text-ink-soft">{n}</span>
                 <span className="relative">
                   {id}
-                  <span className="absolute left-0 -bottom-1 h-px w-0 bg-paper group-hover:w-full transition-all duration-500" />
+                  <span className="absolute left-0 -bottom-1 h-px w-0 bg-ink group-hover:w-full transition-all duration-500" />
                 </span>
               </a>
             ))}
@@ -204,10 +204,10 @@ function Nav() {
             aria-label="menu"
             data-cursor
           >
-            <span className="block w-6 h-px bg-paper" />
-            <span className="block w-6 h-px bg-paper" />
+            <span className="block w-6 h-px bg-ink" />
+            <span className="block w-6 h-px bg-ink" />
           </button>
-          <span className="hidden md:inline opacity-60">Available · MMXXVI</span>
+          <span className="hidden md:inline text-ink-soft">Available · MMXXVI</span>
         </div>
       </header>
 
@@ -338,9 +338,9 @@ function Hero() {
 
         {/* bottom row */}
         <div className="grid grid-cols-12 gap-4 items-end">
-          <div className="col-span-12 md:col-span-4 text-sm leading-relaxed text-ink-soft max-w-xs">
+          <div className="col-span-12 md:col-span-5 text-sm md:text-base leading-relaxed text-ink max-w-md">
             <Reveal delay={0.7}>
-              I turn ideas into working products with the help of AI — learning, shipping, refining. Quietly.
+              I build apps, websites, and working robots — with AI as my co-pilot. Curious by default, quiet by design.
             </Reveal>
           </div>
           <div className="col-span-6 md:col-span-4 md:col-start-6 hidden md:block">
@@ -397,15 +397,30 @@ function About() {
           <Reveal>02 / About</Reveal>
         </div>
         <div className="col-span-12 md:col-span-9 md:col-start-4">
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.15] tracking-tight max-w-4xl">
-            <MaskText text="I don't consider myself an expert. I'm someone who enjoys" />
-            <span className="text-ink-soft">
-              <MaskText delay={0.2} text="bringing ideas to life with AI — experimenting, shipping, improving." />
+          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.2] tracking-tight max-w-4xl text-ink">
+            <MaskText text="I love making things with the help of AI —" />
+            <span className="text-ink-soft block mt-2">
+              <MaskText delay={0.2} text="apps, websites, and small robots that actually move." />
             </span>
-            <span className="text-crimson italic">
+            <span className="text-crimson italic block mt-2">
               <MaskText delay={0.4} text="Curiosity is the engine." />
             </span>
           </h2>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-4xl">
+            {[
+              ["Web", "Clean, motion-first websites and landing pages — from idea to shipped, fast."],
+              ["Apps", "Lightweight tools and personal apps built with React, Next.js, and AI workflows."],
+              ["Robots", "Hands-on hardware tinkering — sensors, motors, microcontrollers, small builds that work."],
+            ].map(([k, v], i) => (
+              <Reveal key={k} delay={i * 0.1}>
+                <div className="border-t border-rule pt-4">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-crimson mb-3">0{i + 1} · {k}</div>
+                  <p className="text-sm md:text-base text-ink leading-relaxed">{v}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
 
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 font-mono text-xs uppercase tracking-[0.25em]">
             {[
@@ -537,11 +552,11 @@ function WorkRow({ p, idx }: { p: Project; idx: number }) {
             style={{ x: sx, y: sy }}
             className="pointer-events-none absolute left-0 top-0 z-40 hidden md:block"
           >
-            <div className="w-72 aspect-[4/3] overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-crimson/80 via-ink to-indigo/70 flex items-end p-5">
-                <div className="font-display text-paper text-xl leading-tight">
+            <div className="w-72 aspect-[4/3] overflow-hidden border border-rule">
+              <div className="w-full h-full bg-gradient-to-br from-crimson/80 via-paper to-indigo/70 flex items-end p-5">
+                <div className="font-display text-ink text-xl leading-tight">
                   {p.title}
-                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] mt-1 opacity-70">visit live →</div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] mt-1 text-ink-soft">visit live →</div>
                 </div>
               </div>
             </div>
@@ -587,9 +602,9 @@ function Work() {
 /* ─────────────────────────  craft / skills  ───────────────────────── */
 
 const SKILLS = [
-  "HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS",
-  "Git", "GitHub", "Lovable", "ChatGPT", "Cursor AI",
-  "Web Development", "Digital Marketing", "Prompt Engineering",
+  "HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind",
+  "Lovable", "ChatGPT", "Cursor AI", "Prompt Engineering",
+  "Arduino", "Robotics", "Electronics", "Web Development",
 ];
 
 function Craft() {
@@ -803,7 +818,6 @@ function Page() {
         <Work />
         <Craft />
         <About />
-        <Philosophy />
         <Hobbies />
         <Contact />
       </main>
