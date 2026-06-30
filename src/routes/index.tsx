@@ -426,6 +426,7 @@ function About() {
             {[
               ["Name", "Samarth Naik"],
               ["Based", "Belgaum, KA"],
+              ["Age", "18"],
               ["Education", "12th · 2024"],
               ["Status", "Open to work"],
             ].map(([k, v], i) => (
