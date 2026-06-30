@@ -537,11 +537,11 @@ function WorkRow({ p, idx }: { p: Project; idx: number }) {
             style={{ x: sx, y: sy }}
             className="pointer-events-none absolute left-0 top-0 z-40 hidden md:block"
           >
-            <div className="w-72 aspect-[4/3] overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-crimson/80 via-ink to-indigo/70 flex items-end p-5">
-                <div className="font-display text-paper text-xl leading-tight">
+            <div className="w-72 aspect-[4/3] overflow-hidden border border-rule">
+              <div className="w-full h-full bg-gradient-to-br from-crimson/80 via-paper to-indigo/70 flex items-end p-5">
+                <div className="font-display text-ink text-xl leading-tight">
                   {p.title}
-                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] mt-1 opacity-70">visit live →</div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] mt-1 text-ink-soft">visit live →</div>
                 </div>
               </div>
             </div>
