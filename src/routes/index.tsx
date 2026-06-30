@@ -818,7 +818,6 @@ function Page() {
         <Work />
         <Craft />
         <About />
-        <Philosophy />
         <Hobbies />
         <Contact />
       </main>
