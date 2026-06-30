@@ -602,9 +602,9 @@ function Work() {
 /* ─────────────────────────  craft / skills  ───────────────────────── */
 
 const SKILLS = [
-  "HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS",
-  "Git", "GitHub", "Lovable", "ChatGPT", "Cursor AI",
-  "Web Development", "Digital Marketing", "Prompt Engineering",
+  "HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind",
+  "Lovable", "ChatGPT", "Cursor AI", "Prompt Engineering",
+  "Arduino", "Robotics", "Electronics", "Web Development",
 ];
 
 function Craft() {
