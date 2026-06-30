@@ -427,7 +427,7 @@ function About() {
               ["Name", "Samarth Naik"],
               ["Based", "Belgaum, KA"],
               ["Age", "18"],
-              ["Education", "12th · 2024"],
+              ["Education", "12th · 2026"],
               ["Status", "Open to work"],
             ].map(([k, v], i) => (
               <Reveal key={k} delay={i * 0.08}>
