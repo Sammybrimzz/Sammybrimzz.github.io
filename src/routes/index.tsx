@@ -748,15 +748,23 @@ function Contact() {
         <div className="col-span-12 md:col-span-5 md:col-start-8 grid grid-cols-2 gap-y-10 gap-x-6">
           {[
             ["Phone", "+91 90718 74027", "tel:+919071874027"],
-            ["GitHub", "soon", "#"],
-            ["LinkedIn", "soon", "#"],
-            ["Location", "Belgaum, KA", null],
+            ["GitHub", "Sammybrimzz", "https://github.com/Sammybrimzz"],
+            ["Instagram", "@sam_n027", "https://www.instagram.com/sam_n027?igsi=b3JuMG40YTRiaDYy"],
+            ["LinkedIn", "Samarth Naik", "https://www.linkedin.com/in/samarth-naik-27b152327/"],
           ].map(([k, v, href], i) => (
             <Reveal key={k} delay={i * 0.05}>
               <div className="border-t border-rule pt-3">
                 <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-soft mb-2">{k}</div>
                 {href ? (
-                  <a href={href} className="font-display text-lg md:text-xl hover:text-crimson transition-colors" data-cursor>{v}</a>
+                  <a
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={href.startsWith("http") ? "noreferrer" : undefined}
+                    className="font-display text-lg md:text-xl hover:text-crimson transition-colors"
+                    data-cursor
+                  >
+                    {v}
+                  </a>
                 ) : (
                   <div className="font-display text-lg md:text-xl">{v}</div>
                 )}
