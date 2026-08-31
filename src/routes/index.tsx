@@ -468,6 +468,15 @@ const PROJECTS: Project[] = [
   },
   {
     no: "02",
+    title: "Expense Tracker",
+    meta: "Personal · Finance",
+    year: "2026",
+    desc: "A clean, AI-assisted expense tracker — log spending, see where money goes, and stay on top of your budget.",
+    href: "https://expenseahh.lovable.app/",
+    status: "live",
+  },
+  {
+    no: "03",
     title: "Guitar Learning App",
     meta: "Long-term · Personal",
     year: "2026",
