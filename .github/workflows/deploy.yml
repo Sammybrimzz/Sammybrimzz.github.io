@@ -33,12 +33,18 @@ jobs:
         run: bun run build
 
         
-      - name: Inspect build output
+      
+      - name: Inspect public files
         run: |
-          echo "Root folders:"
-          ls -la
-          echo "Build output folders:"
-          find .output dist build -maxdepth 3 -type f -name "index.html" 2>/dev/null || true
+          echo "Files generated for the website:"
+          find .output/public -maxdepth 3 -type f
+          echo "Checking for index.html:"
+          if [ -f .output/public/index.html ]; then
+            echo "INDEX FOUND"
+          else
+            echo "INDEX MISSING"
+          fi
+
 
 
       - name: Setup Pages
