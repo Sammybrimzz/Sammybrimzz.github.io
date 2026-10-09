@@ -6,6 +6,7 @@ import {
   useSpring,
   useMotionValue,
   useMotionValueEvent,
+  useReducedMotion,
   AnimatePresence,
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
@@ -482,7 +483,16 @@ const PROJECTS: Project[] = [
     title: "Guitar Learning App",
     meta: "Long-term · Personal",
     year: "2026",
-    desc: "AI-assisted project making guitar learning interactive — visual lessons, note recognition, gentle practice loops.",
+    desc: "Currently in progress — an AI-assisted app for interactive guitar learning, with visual lessons, note recognition, and gentle practice loops.",
+    href: "#",
+    status: "wip",
+  },
+  {
+    no: "04",
+    title: "AI Operating System",
+    meta: "Personal · Systems",
+    year: "2026",
+    desc: "Currently building my own operating system with embedded AI — a new project exploring how intelligence can be part of the system itself.",
     href: "#",
     status: "wip",
   },
@@ -536,16 +546,16 @@ function WorkRow({ p, idx }: { p: Project; idx: number }) {
             </motion.div>
           </div>
         </div>
-        <div className="col-span-7 md:col-span-3 font-mono text-[10px] md:text-xs uppercase tracking-[0.25em] text-ink-soft">
+        <div className="col-span-6 md:col-span-2 font-mono text-[10px] md:text-xs uppercase tracking-[0.25em] text-ink-soft">
           {p.meta}
         </div>
-        <div className="col-span-3 md:col-span-2 font-mono text-xs text-ink-soft text-right">
+        <div className="col-span-2 md:col-span-2 font-mono text-xs text-ink-soft text-right">
           {p.year}
         </div>
-        <div className="col-span-2 md:col-span-1 flex justify-end">
+        <div className="col-span-4 md:col-span-2 flex justify-end">
           {p.status === "wip" ? (
-            <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.25em] text-ink-soft">
-              <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse" /> WIP
+            <span className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-soft">
+              <span className="w-1.5 h-1.5 shrink-0 rounded-full bg-crimson motion-safe:animate-pulse" /> In progress
             </span>
           ) : (
             <span className="font-mono text-xs">↗</span>
@@ -797,10 +807,22 @@ function Contact() {
 /* ─────────────────────────  shell  ───────────────────────── */
 
 function MovingBackdrop() {
+  const ref = useRef<HTMLDivElement>(null);
+  const reducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const progress = useSpring(scrollYProgress, { stiffness: 70, damping: 25 });
+  const y = useTransform(progress, [0, 1], [100, -140]);
+  const rotate = useTransform(progress, [0, 1], [-12, 16]);
+  const scale = useTransform(progress, [0, 0.5, 1], [1, 1.18, 1.04]);
+
   return (
-    <div className="moving-backdrop" aria-hidden="true">
+    <div ref={ref} className="moving-backdrop" aria-hidden="true">
       <div className="moving-backdrop-frame">
-        <svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice">
+        <motion.svg
+          viewBox="0 0 1440 1000"
+          preserveAspectRatio="xMidYMid slice"
+          style={reducedMotion ? undefined : { y, rotate, scale }}
+        >
           <g className="backdrop-contours">
             {Array.from({ length: 12 }, (_, i) => (
               <path key={i} d={`M ${750 + i * 28} -150 C ${320 + i * 32} 240, ${1550 + i * 26} 510, ${820 + i * 30} 1150`} />
@@ -812,7 +834,7 @@ function MovingBackdrop() {
               <path key={i} d={`M -200 ${350 + i * 32} C 150 ${120 + i * 28}, 260 ${1050 + i * 30}, 750 ${1150 + i * 32}`} />
             ))}
           </g>
-        </svg>
+        </motion.svg>
       </div>
     </div>
   );
