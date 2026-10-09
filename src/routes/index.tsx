@@ -17,6 +17,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Portfolio of Samarth Naik — AI-assisted builder, web creator, digital problem solver." },
       { property: "og:title", content: "Samarth Naik — Portfolio" },
       { property: "og:description", content: "Quiet, motion-first portfolio of an AI-assisted builder." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Page,
@@ -794,6 +796,28 @@ function Contact() {
 
 /* ─────────────────────────  shell  ───────────────────────── */
 
+function MovingBackdrop() {
+  return (
+    <div className="moving-backdrop" aria-hidden="true">
+      <div className="moving-backdrop-frame">
+        <svg viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice">
+          <g className="backdrop-contours">
+            {Array.from({ length: 12 }, (_, i) => (
+              <path key={i} d={`M ${750 + i * 28} -150 C ${320 + i * 32} 240, ${1550 + i * 26} 510, ${820 + i * 30} 1150`} />
+            ))}
+            <path className="backdrop-trace" d="M 890 -150 C 480 240, 1680 510, 970 1150" />
+          </g>
+          <g className="backdrop-contours-secondary">
+            {Array.from({ length: 7 }, (_, i) => (
+              <path key={i} d={`M -200 ${350 + i * 32} C 150 ${120 + i * 28}, 260 ${1050 + i * 30}, 750 ${1150 + i * 32}`} />
+            ))}
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
 function Page() {
   const [loading, setLoading] = useState(true);
   const [showCursor, setShowCursor] = useState(false);
@@ -832,12 +856,15 @@ function Page() {
 
       <main>
         <Hero />
-        <Marquee />
-        <Work />
-        <Craft />
-        <About />
-        <Hobbies />
-        <Contact />
+        <div className="relative isolate">
+          <MovingBackdrop />
+          <Marquee />
+          <Work />
+          <Craft />
+          <About />
+          <Hobbies />
+          <Contact />
+        </div>
       </main>
     </div>
   );

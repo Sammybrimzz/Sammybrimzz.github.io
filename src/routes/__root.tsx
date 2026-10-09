@@ -86,8 +86,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Samarth Naik — AI-Assisted Builder" },
       { name: "twitter:description", content: "Portfolio of Samarth Naik — AI-assisted builder, web creator, and digital problem solver based in Belgaum, Karnataka." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9a97a631-68bf-45d9-8969-fcbe6a20bb5b/id-preview-7a52ee48--2a5e0837-21b6-41f8-a85b-2fbadcabfd55.lovable.app-1782769614693.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9a97a631-68bf-45d9-8969-fcbe6a20bb5b/id-preview-7a52ee48--2a5e0837-21b6-41f8-a85b-2fbadcabfd55.lovable.app-1782769614693.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
