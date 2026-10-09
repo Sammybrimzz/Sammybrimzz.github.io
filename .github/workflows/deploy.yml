@@ -32,6 +32,15 @@ jobs:
       - name: Build portfolio
         run: bun run build
 
+        
+      - name: Inspect build output
+        run: |
+          echo "Root folders:"
+          ls -la
+          echo "Build output folders:"
+          find .output dist build -maxdepth 3 -type f -name "index.html" 2>/dev/null || true
+
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
