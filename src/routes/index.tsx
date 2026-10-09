@@ -489,7 +489,7 @@ const PROJECTS: Project[] = [
   },
   {
     no: "04",
-    title: "AI Operating System",
+    title: "Nova OS",
     meta: "Personal · Systems",
     year: "2026",
     desc: "Currently building my own operating system with embedded AI — a new project exploring how intelligence can be part of the system itself.",
@@ -814,6 +814,8 @@ function MovingBackdrop() {
   const y = useTransform(progress, [0, 1], [100, -140]);
   const rotate = useTransform(progress, [0, 1], [-12, 16]);
   const scale = useTransform(progress, [0, 0.5, 1], [1, 1.18, 1.04]);
+  const traceOffset = useTransform(progress, [0, 1], [0.3, -3.7]);
+  const secondaryTraceOffset = useTransform(progress, [0, 1], [0.7, -2.3]);
 
   return (
     <div ref={ref} className="moving-backdrop" aria-hidden="true">
@@ -827,12 +829,26 @@ function MovingBackdrop() {
             {Array.from({ length: 12 }, (_, i) => (
               <path key={i} d={`M ${750 + i * 28} -150 C ${320 + i * 32} 240, ${1550 + i * 26} 510, ${820 + i * 30} 1150`} />
             ))}
-            <path className="backdrop-trace" d="M 890 -150 C 480 240, 1680 510, 970 1150" />
+            {[2, 5, 9].map((i) => (
+              <motion.path
+                key={`trace-${i}`}
+                className="backdrop-trace"
+                pathLength={1}
+                d={`M ${750 + i * 28} -150 C ${320 + i * 32} 240, ${1550 + i * 26} 510, ${820 + i * 30} 1150`}
+                style={{ strokeDashoffset: reducedMotion ? 0 : traceOffset }}
+              />
+            ))}
           </g>
           <g className="backdrop-contours-secondary">
             {Array.from({ length: 7 }, (_, i) => (
               <path key={i} d={`M -200 ${350 + i * 32} C 150 ${120 + i * 28}, 260 ${1050 + i * 30}, 750 ${1150 + i * 32}`} />
             ))}
+            <motion.path
+              className="backdrop-trace"
+              pathLength={1}
+              d="M -200 446 C 150 204, 260 1140, 750 1246"
+              style={{ strokeDashoffset: reducedMotion ? 0 : secondaryTraceOffset }}
+            />
           </g>
         </motion.svg>
       </div>
