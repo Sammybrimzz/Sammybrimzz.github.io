@@ -44,7 +44,7 @@
   --background: var(--paper);
   --foreground: var(--ink);
   --motion-line: color-mix(in oklch, var(--ink) 10%, transparent);
-  --motion-accent: color-mix(in oklch, var(--crimson) 25%, transparent);
+  --motion-accent: color-mix(in oklch, var(--crimson) 65%, transparent);
 }
 
 @layer base {
@@ -132,15 +132,13 @@
 }
 .backdrop-trace {
   stroke: var(--motion-accent);
-  stroke-dasharray: 100 1600;
-  animation: trace-travel 22s linear infinite;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-dasharray: 0.12 0.88;
 }
 @keyframes contour-drift {
   from { transform: translateY(-25px) rotate(-7deg) scale(1); }
   to { transform: translateY(35px) rotate(7deg) scale(1.08); }
-}
-@keyframes trace-travel {
-  to { stroke-dashoffset: -1700; }
 }
 @media (prefers-reduced-motion: reduce) {
   .moving-backdrop svg {
