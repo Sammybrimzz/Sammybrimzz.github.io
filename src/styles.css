@@ -147,4 +147,7 @@
   .backdrop-contours, .backdrop-contours-secondary, .backdrop-trace {
     animation: none;
   }
+  .backdrop-trace {
+    stroke-dashoffset: 0 !important;
+  }
 }
