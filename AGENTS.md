@@ -9,4 +9,4 @@
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
 
-- Keep post-introduction background motion in an isolated, pointer-transparent layer so content interactions and text animation timing remain independent.
+- Keep post-introduction background motion in an isolated, pointer-transparent layer, driven by section scroll progress with reduced-motion support, so content interactions and text animation timing remain independent.

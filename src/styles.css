@@ -143,6 +143,9 @@
   to { stroke-dashoffset: -1700; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .moving-backdrop svg {
+    transform: none !important;
+  }
   .backdrop-contours, .backdrop-contours-secondary, .backdrop-trace {
     animation: none;
   }
