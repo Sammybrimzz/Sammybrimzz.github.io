@@ -410,7 +410,7 @@ function About() {
             </span>
           </h2>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-4xl">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 max-w-4xl">
             {[
               ["Web", "Clean, motion-first websites and landing pages — from idea to shipped, fast."],
               ["Apps", "Lightweight tools and personal apps built with React, Next.js, and AI workflows."],
