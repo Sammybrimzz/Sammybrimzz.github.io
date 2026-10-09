@@ -47,7 +47,7 @@ jobs:
       - name: Upload build
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist
+          path: .output/public
 
       - name: Deploy
         uses: actions/deploy-pages@v4
