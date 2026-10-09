@@ -394,7 +394,7 @@ function Marquee() {
 
 function About() {
   return (
-    <section id="about" className="relative px-6 md:px-10 py-32 md:py-56">
+    <section id="about" className="relative px-6 md:px-10 py-32 md:py-56 scroll-mt-[-70px] md:scroll-mt-[-150px]">
       <div className="grid grid-cols-12 gap-6">
         <div className="col-span-12 md:col-span-2 font-mono text-[10px] uppercase tracking-[0.3em] text-ink-soft">
           <Reveal>02 / About</Reveal>
