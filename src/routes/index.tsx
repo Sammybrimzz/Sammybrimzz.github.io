@@ -45,21 +45,27 @@ function Reveal({ children, delay = 0, y = 28 }: { children: React.ReactNode; de
 function MaskText({ text, className = "", delay = 0 }: { text: string; className?: string; delay?: number }) {
   const words = text.split(" ");
   return (
-    <span className={className}>
+    <motion.span
+      className={className}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-60px" }}
+      variants={{ hidden: {}, show: {} }}
+    >
       {words.map((w, i) => (
         <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.1em]">
           <motion.span
             className="inline-block"
-            initial={{ y: "110%" }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.1, delay: delay + i * 0.05, ease: EASE }}
+            variants={{
+              hidden: { y: "110%" },
+              show: { y: 0, transition: { duration: 1.1, delay: delay + i * 0.05, ease: EASE } },
+            }}
           >
             {w}&nbsp;
           </motion.span>
         </span>
       ))}
-    </span>
+    </motion.span>
   );
 }
 
