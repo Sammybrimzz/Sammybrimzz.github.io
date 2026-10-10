@@ -406,7 +406,7 @@ function About() {
           <Reveal>02 / About</Reveal>
         </div>
         <div className="col-span-12 md:col-span-9 md:col-start-4">
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl leading-[1.2] tracking-tight max-w-4xl text-ink">
+          <h2 className="font-display text-2xl md:text-4xl lg:text-5xl leading-[1.2] tracking-tight max-w-4xl text-ink">
             <MaskText text="I love making things with the help of AI —" />
             <span className="text-ink-soft block mt-2">
               <MaskText delay={0.2} text="apps, websites, and small robots that actually move." />
