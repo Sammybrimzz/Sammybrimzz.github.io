@@ -441,6 +441,22 @@ function About() {
               </Reveal>
             ))}
           </div>
+
+          <Reveal delay={0.1}>
+            <a
+              href="https://builder.aws.com/community/@sammybrimzz?tab=badges"
+              target="_blank"
+              rel="noreferrer"
+              data-cursor
+              className="group mt-14 flex flex-col md:flex-row md:items-baseline md:justify-between gap-3 border-t border-rule pt-4 max-w-4xl"
+            >
+              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-soft">Community</span>
+              <span className="font-display text-base md:text-lg text-ink group-hover:text-crimson transition-colors">
+                Core Technical Team · AWS Student Builder Group, PES
+                <span className="ml-3 inline-block text-crimson transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+              </span>
+            </a>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -772,6 +788,7 @@ function Contact() {
             ["GitHub", "Sammybrimzz", "https://github.com/Sammybrimzz"],
             ["Instagram", "@sam_n027", "https://www.instagram.com/sam_n027?igsi=b3JuMG40YTRiaDYy"],
             ["LinkedIn", "Samarth Naik", "https://www.linkedin.com/in/samarth-naik-27b152327/"],
+            ["AWS Builder", "@sammybrimzz", "https://builder.aws.com/community/@sammybrimzz?tab=badges"],
           ].map(([k, v, href], i) => (
             <Reveal key={k} delay={i * 0.05}>
               <div className="border-t border-rule pt-3">
