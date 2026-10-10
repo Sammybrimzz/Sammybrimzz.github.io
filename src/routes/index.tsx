@@ -425,14 +425,13 @@ function About() {
             ))}
           </div>
 
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 font-mono text-xs uppercase tracking-[0.25em]">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-6 font-mono text-xs uppercase tracking-[0.25em]">
             {[
               ["Name", "Samarth Naik"],
               ["Based", "Belgaum, KA"],
               ["Age", "18"],
-              ["Course", "BCA"],
+              ["Course", "Computer Applications"],
               ["College", "PES University"],
-              ["Semester", "One"],
               ["Status", "Open to work"],
             ].map(([k, v], i) => (
               <Reveal key={k} delay={i * 0.08}>
