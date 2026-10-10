@@ -425,7 +425,7 @@ function About() {
             ))}
           </div>
 
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 font-mono text-xs uppercase tracking-[0.25em]">
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-y-10 gap-x-6 font-mono text-xs uppercase tracking-[0.25em]">
             {[
               ["Name", "Samarth Naik"],
               ["Based", "Belgaum, KA"],
