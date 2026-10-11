@@ -516,7 +516,7 @@ const PROJECTS: Project[] = [
     meta: "Personal · Systems",
     year: "2026",
     desc: "Currently building my own operating system with embedded AI — a new project exploring how intelligence can be part of the system itself.",
-    href: "#",
+    href: "https://github.com/Sammybrimzz/nova-os",
     status: "wip",
   },
 ];
