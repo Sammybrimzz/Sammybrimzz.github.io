@@ -588,7 +588,7 @@ function WorkRow({ p, idx }: { p: Project; idx: number }) {
 
       {/* hover preview */}
       <AnimatePresence>
-        {hover && p.status === "live" && (
+        {hover && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -601,7 +601,9 @@ function WorkRow({ p, idx }: { p: Project; idx: number }) {
               <div className="w-full h-full bg-gradient-to-br from-crimson/80 via-paper to-indigo/70 flex items-end p-5">
                 <div className="font-display text-ink text-xl leading-tight">
                   {p.title}
-                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] mt-1 text-ink-soft">visit live →</div>
+                  <div className="font-mono text-[10px] uppercase tracking-[0.25em] mt-1 text-ink-soft">
+                    {p.status === "live" ? "visit live →" : p.href === "#" ? "in progress →" : "view repo →"}
+                  </div>
                 </div>
               </div>
             </div>
