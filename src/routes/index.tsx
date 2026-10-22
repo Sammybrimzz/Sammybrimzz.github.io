@@ -503,11 +503,11 @@ const PROJECTS: Project[] = [
   },
   {
     no: "03",
-    title: "Guitar Learning App",
+    title: "BeatBrawl",
     meta: "Long-term · Personal",
     year: "2026",
-    desc: "Currently in progress — an AI-assisted app for interactive guitar learning, with visual lessons, note recognition, and gentle practice loops.",
-    href: "#",
+    desc: "Currently in progress — my guitar learning app, built for interactive lessons, practice loops, and turning learning into a game.",
+    href: "https://github.com/Sammybrimzz/BeatBrawl",
     status: "wip",
   },
   {
